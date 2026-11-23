@@ -4,11 +4,16 @@
 
 ## Usage
 
-It is an API running on Vercel using Flask Framework that provides the ability to search Minecraft Plugins online.
+It is an API using Flask Framework that provides the ability to search Minecraft Plugins online.
 
 ## Demo
 
-(Still under construction...)
+https://plug.teamoo.club/
+
+## Credit
+1. Lafcadia, Main Developer, President of Team OblivionOcean.
+2. Fgaoxing, Developer, CEO of Team OblivionOcean.
+3. ZigaoWang, Deployer, Member of Team OblivionOcean.
 
 ## GUI & CLI
 

@@ -7,7 +7,7 @@ from core.engine.google import Google
 
 class Minebbs():
 
-    def search(self, keywords, translation=True, e="bing") -> typing.List[SearchResult]:
+    def search(self, keywords, e="bing") -> typing.List[SearchResult]:
         if e == "bing":
             engine = Bing()
         elif e == "google":

@@ -7,7 +7,7 @@ from core.engine.google import Google
 
 class Klpbbs:
 
-    def search(self, keywords, translation=False, e="bing") -> typing.List[SearchResult]:
+    def search(self, keywords, e="bing") -> typing.List[SearchResult]:
         if e == "bing":
             engine = Bing()
         elif e == "google":

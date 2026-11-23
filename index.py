@@ -18,15 +18,22 @@ app.config['STATIC_FOLDER'] = os.path.join(
 def static_files(filename):
     return send_from_directory(app.config['STATIC_FOLDER'], filename)
 
+
 @app.route('/')
 def home():
     return send_from_directory(app.config['STATIC_FOLDER'], 'index.html')
+
 
 @app.route('/s', methods=['GET'])
 def about():
     try:
         content = []
         request_data, s = request.args.get('q'), request.args.get('s')
+        if s in ["谷歌", "必应"]:
+            if s == "谷歌":
+                s = "google"
+            elif s == "必应":
+                s = "bing"
         result = search.search(request_data, s)
         for obj in result:
             try:

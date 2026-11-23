@@ -1,74 +1,164 @@
-:root,
-body,
-html {
+* {
     margin: 0;
-    width: 100%
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.title {
-    text-align: center;
-    margin-top: 200px;
-    font-size: 50px;
-    font-weight: 400
-}
-
-.form {
+body {
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(100% - 30px);
-    max-width: 768px;
-    margin: auto
+    height: 100vh;
 }
 
-.q-input,
-.submit {
-    outline: 0;
-    border: 0;
-    padding: 10px;
-    margin: 20px
+.background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    filter: blur(2px);
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.q-input {
-    border-bottom: 3px solid #38b6ff;
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: skyblue;
+    text-shadow: 1px 1px 1px #007aff;
+    margin-top: 30px;
+}
+
+.form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    /* 宽度可调 */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
     width: 100%;
-    box-sizing: border-box
-}
-
-.submit {
-    background-color: #38b6ff;
-    color: #fff
-}
-
-.submit:disabled {
-    background-color: #dbe0e5
 }
 
 .select {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    flex-wrap: wrap;
-    justify-content: center
+    margin-right: 10px;
+    /* 选项与输入框的间隔 */
 }
 
-#error {
-    color: red
-}
-
-.result {
-    width: calc(100% - 30px);
-    max-width: 1024px;
-    display: none;
-    margin: auto
-}
-
-.result thead tr th {
-    border-bottom: 3px solid #38b6ff;
-    padding: 10px
-}
-
-.result tbody tr td {
+.q-input {
+    flex: 1;
+    /* 让输入框占用剩余空间 */
     padding: 10px;
-    border-bottom: 1px solid #000
+    margin-right: 10px;
+    /* 输入框与按钮的间隔 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.q-input:focus {
+    border-color: #007aff;
+    outline: none;
+}
+
+input[type="radio"] {
+    display: none;
+    /* 隐藏原生单选按钮 */
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+    margin-right: 5px;
+    /* 选项之间的间隔 */
+}
+
+input[type="radio"]:checked+.radio-label {
+    background-color: #007aff;
+    color: white;
+    border-color: #007aff;
+}
+
+.submit {
+    background-color: #007aff;
+    color: white;
+    padding: 10px 20px;
+    /* 增加按钮的左右内边距 */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.submit:hover {
+    background-color: #005bb5;
+}
+
+/* 表格整体样式 */
+.result {
+    width: 80%;
+    border-collapse: collapse;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetia Neue", Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.result th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+    color: #555;
+}
+
+/* 表格主体样式 */
+.result tbody {
+    background-color: white;
+}
+
+.item {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px; /* 为每个单元格添加圆角 */
+    transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+.item:hover {
+    background-color: #f0f0f0;
+    /* 稍微变大 */
+    transform: scale(1.01,1.1);
+    transition: all 0.3s ease;
+}
+
+.result td {
+    width: 100%;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 最后一行边框样式 */
+.result tbody tr:last-child td {
+    border-bottom: none;
 }
